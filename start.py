@@ -3,6 +3,7 @@ import os
 # python 环境配置
 
 # os.system('mkdir -p /home/xlab-app-center')  # 首先创建一个工作目录
+os.system('apt-get install git-lfs')
 os.chdir('/home/xlab-app-center')  # 这个目录应该是浦语官方的存放应用的目录，不需要你自己创建
 os.system('mkdir -p download/xtuner019')
 os.chdir('download/xtuner019')
