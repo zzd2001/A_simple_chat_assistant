@@ -25,12 +25,27 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    base_path = './a_simple_chat_model'
+    # 创建model存放路径
+    os.chdir('/home/xlab-app-center')
+    os.system('mkdir -p model/a_simple_chat_model')  
+    base_path = '/home/xlab-app-center/model/a_simple_chat_model'
     # download repo to the base_path directory using git
     os.system('apt install git')
     os.system('apt install git-lfs')
     os.system(f'git clone https://code.openxlab.org.cn/Xuanyuan/a_simple_chat_model.git {base_path}')
     os.system(f'cd {base_path} && git lfs pull')
+    # # 查看模型库目录
+    # os.chdir('/home/xlab-app-center/model')
+    # os.system('echo "--/home/xlab-app-center/model--"')
+    # os.system('pwd')
+    # os.system('ls')
+    # os.system('echo "--/home/xlab-app-center/model--"')
+    # # 查看a_simple_chat_model目录
+    # os.chdir('/home/xlab-app-center/model/a_simple_chat_model')
+    # os.system('echo "--/home/xlab-app-center/model/a_simple_chat_model--"')
+    # os.system('pwd')
+    # os.system('ls')
+    # os.system('echo "--/home/xlab-app-center/model/a_simple_chat_model--"')
 
     model = (
         AutoModelForCausalLM.from_pretrained(base_path, trust_remote_code=True)
