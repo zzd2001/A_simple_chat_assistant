@@ -7,9 +7,7 @@ os.chdir('download/xtuner019')
 os.system('git clone -b v0.1.9 https://gitee.com/Internlm/xtuner')
 os.chdir('xtuner')
 os.system("pip install -e '.[all]'")
-# 创建model存放路径
-os.chdir('/home/xlab-app-center')
-os.system('mkdir -p model/a_simple_chat_model')  
+
 
 # 执行前端界面
 os.chdir('/home/xlab-app-center') # 回到目界面
