@@ -11,8 +11,22 @@ os.system("pip install -e '.[all]'")
 os.chdir('/home/xlab-app-center')
 os.system('mkdir model')  
 # 加载微调后的模型
-os.system('apt-get install git-lfs')  
-os.system(f'git clone https://code.openxlab.org.cn/Xuanyuan/a_simple_chat_model.git')
+# 第一种方式，在开发机上可以，构建应用时出现问题
+# os.system('apt-get install git-lfs')  
+# os.system(f'git clone https://code.openxlab.org.cn/Xuanyuan/a_simple_chat_model.git')
+# 第二种方式，也就是使用加载transformer的方式
+import torch
+import os
+# from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+
+base_path = '/home/xlab-app-center/model'
+# download repo to the base_path directory using git
+os.system('apt install git')
+os.system('apt install git-lfs')
+os.system(f'git clone https://code.openxlab.org.cn/Xuanyuan/a_simple_chat_model.git {base_path}')
+os.system(f'cd {base_path} && git lfs pull')
+# 第三种方式，使用openlab download
+
 # 查看模型库目录
 os.chdir('/home/xlab-app-center/model')
 os.system('echo "--/home/xlab-app-center/model--"')
