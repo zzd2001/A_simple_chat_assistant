@@ -25,12 +25,19 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
+    base_path = './a_simple_chat_model'
+    # download repo to the base_path directory using git
+    os.system('apt install git')
+    os.system('apt install git-lfs')
+    os.system(f'git clone https://code.openxlab.org.cn/Xuanyuan/a_simple_chat_model.git {base_path}')
+    os.system(f'cd {base_path} && git lfs pull')
+
     model = (
-        AutoModelForCausalLM.from_pretrained("/home/xlab-app-center/model/a_simple_chat_model", trust_remote_code=True)
+        AutoModelForCausalLM.from_pretrained(base_path, trust_remote_code=True)
         .to(torch.bfloat16)
         .cuda()
     )
-    tokenizer = AutoTokenizer.from_pretrained("/home/xlab-app-center/model/a_simple_chat_model", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(base_path, trust_remote_code=True)
     return model, tokenizer
 
 
