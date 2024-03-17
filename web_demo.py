@@ -26,11 +26,11 @@ def on_btn_click():
 @st.cache_resource
 def load_model():
     model = (
-        AutoModelForCausalLM.from_pretrained("/home/xlab-app-center/a_simple_chat_model", trust_remote_code=True)
+        AutoModelForCausalLM.from_pretrained("/home/xlab-app-center/model/a_simple_chat_model", trust_remote_code=True)
         .to(torch.bfloat16)
         .cuda()
     )
-    tokenizer = AutoTokenizer.from_pretrained("/home/xlab-app-center/a_simple_chat_model", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained("/home/xlab-app-center/model/a_simple_chat_model", trust_remote_code=True)
     return model, tokenizer
 
 
