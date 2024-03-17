@@ -18,12 +18,21 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
 # 创建model存放路径
 os.chdir('/home/xlab-app-center')
 os.system('mkdir a_simple_chat_model')
+os.system('echo "--/home/xlab-app-center--"')
+os.system('pwd')
+os.system('ls')
+os.system('echo "--/home/xlab-app-center--"')
 # 开始加载模型
-base_path = './a_simple_chat_model'
+base_path = '/home/xlab-app-center/a_simple_chat_model'
 os.system('apt install git')
 os.system('apt install git-lfs')
 os.system(f'git clone https://code.openxlab.org.cn/Xuanyuan/a_simple_chat_model.git {base_path}')
 os.system(f'cd {base_path} && git lfs pull')
+os.system('echo "--/home/xlab-app-center/a_simple_chat_model--"')
+os.system('pwd')
+os.system('ls')
+os.system('echo "--/home/xlab-app-center/a_simple_chat_model--"')
+
 tokenizer = AutoTokenizer.from_pretrained(base_path,trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(base_path,trust_remote_code=True, torch_dtype=torch.float16).cuda()
 os.system('echo "----模型加载完成--"')
