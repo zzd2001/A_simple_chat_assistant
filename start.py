@@ -9,10 +9,10 @@ os.chdir('xtuner')
 os.system("pip install -e '.[all]'")
 # 创建model存放路径
 os.chdir('/home/xlab-app-center')
-os.system('mkdir -p model/a_simple_chat_model')  
+os.system('mkdir model')  
 # 加载微调后的模型
-from openxlab.model import download
-download(model_repo='Xuanyuan/a_simple_chat_model', output='/home/xlab-app-center/model/a_simple_chat_model')
+os.system('apt-get install git-lfs')  
+os.system(f'git clone https://code.openxlab.org.cn/Xuanyuan/a_simple_chat_model.git')
 # 查看模型库目录
 os.chdir('/home/xlab-app-center/model')
 os.system('echo "--/home/xlab-app-center/model--"')
