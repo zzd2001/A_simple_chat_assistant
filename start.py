@@ -9,7 +9,7 @@ os.chdir('xtuner')
 os.system("pip install -e '.[all]'")
 # 创建model存放路径
 os.chdir('/home/xlab-app-center')
-os.system('mkdir model')  
+os.system('mkdir -p model/a_simple_chat_model')  
 # 加载微调后的模型
 # 第一种方式，在开发机上可以，构建应用时出现问题
 # os.system('apt-get install git-lfs')  
@@ -19,7 +19,7 @@ import torch
 import os
 # from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
 
-base_path = '/home/xlab-app-center/model'
+base_path = '/home/xlab-app-center/model/a_simple_chat_model'
 # download repo to the base_path directory using git
 os.system('apt install git')
 os.system('apt install git-lfs')
