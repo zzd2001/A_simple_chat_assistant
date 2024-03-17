@@ -30,10 +30,11 @@ def load_model():
     os.system('mkdir -p model/a_simple_chat_model')  
     base_path = '/home/xlab-app-center/model/a_simple_chat_model'
     # download repo to the base_path directory using git
-    os.system('apt install git')
-    os.system('apt install git-lfs')
+    # os.system('apt install git')
+    # os.system('apt install git-lfs')
+    os.system('apt-get install git-lfs')
     os.system(f'git clone https://code.openxlab.org.cn/Xuanyuan/a_simple_chat_model.git {base_path}')
-    os.system(f'cd {base_path} && git lfs pull')
+    # os.system(f'cd {base_path} && git lfs pull')
     # # 查看模型库目录
     # os.chdir('/home/xlab-app-center/model')
     # os.system('echo "--/home/xlab-app-center/model--"')
